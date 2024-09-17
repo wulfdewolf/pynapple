@@ -138,7 +138,7 @@ def compute_1d_tuning_curves(group, feature, nb_bins, ep=None, minmax=None):
     for k in group_value:
         count, _ = np.histogram(group_value[k].values, bins)
         count = count / occupancy
-        count[np.isnan(count)] = 0.0
+        #count[np.isnan(count)] = 0.0 # --> this would yield an incorrect tuning curve
         tuning_curves[k] = count
         tuning_curves[k] = count * feature.rate
 
